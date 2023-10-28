@@ -1,5 +1,10 @@
 #Get HTML of Google
-import request as re
-response = re.get("https://google.com")
-html = response.text
-print("html")
+import requests
+from bs4 import BeautifulSoup
+
+response = requests.get("https://google.com")
+
+html= BeautifulSoup(response.text, "html.parser")
+
+print(html.prettify())
+
